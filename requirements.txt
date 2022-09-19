@@ -29,7 +29,7 @@ pandas==1.4.4
 Pillow==9.2.0
 protobuf==3.20.2
 pyarrow==9.0.0
-PyAudio==0.2.12
+# PyAudio==0.2.12
 pycodestyle==2.9.1
 pycparser==2.21
 pydeck==0.8.0b3
