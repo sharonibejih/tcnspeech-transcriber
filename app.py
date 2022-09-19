@@ -4,6 +4,9 @@ import time
 import speech_recognition as sr
 from transcribe import transcribe
 
+# os.system("brew install portaudio")
+# os.system("pip install pyaudio")
+
 r = sr.Recognizer()
 
 st.markdown("Loading transcription model... Please wait")
