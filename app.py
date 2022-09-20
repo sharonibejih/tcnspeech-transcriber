@@ -4,6 +4,8 @@ import time
 import speech_recognition as sr
 from transcribe import transcribe
 
+os.system("pip install PyAudio==0.2.12)
+          
 r = sr.Recognizer()
 
 st.title("Sermon Transcription")
