@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoModelForCTC, Wav2Vec2Processor
 import speech_recognition as sr
+import pyttsx3
 import io
 from pydub import AudioSegment
 
@@ -28,6 +29,7 @@ def transcribe():
     with sr.Microphone(sample_rate=16000) as source:
         print("You can start speaking now...")
         while True:
+            r.adjust_for_ambient_noise(source, 1)
             audio = r.listen(source)  # pyaudio object
             # print("You said something now")
             data = io.BytesIO(audio.get_wav_data())
