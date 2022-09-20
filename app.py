@@ -4,8 +4,10 @@ import time
 import speech_recognition as sr
 from transcribe import transcribe
 
-os.system("sudo apt-get install portaudio19-dev python-pyaudio")
-os.system("pip install pyaudio")
+# os.system("sudo apt-get install portaudio19-dev python-pyaudio")
+# os.system("pip install pyaudio")
+
+os.system("python - m pip install pyaudio")
 
 r = sr.Recognizer()
 
