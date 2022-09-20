@@ -4,7 +4,6 @@ import time
 import speech_recognition as sr
 from transcribe import transcribe
 
-os.system("pip install pyaudio")
           
 r = sr.Recognizer()
 
