@@ -18,8 +18,8 @@ def transcribe():
     NOTE:
     This is an endless loop that only stops when the application is stopped.
     """
-    sr.Microphone(device_index=0)
-    print(
+    sr.Microphone()
+    st.write(
         f"MICs Found on this computer: \n {sr.Microphone.list_microphone_names()}")
     # Creating a recognition object
     r = sr.Recognizer()
