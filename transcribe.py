@@ -19,9 +19,7 @@ def transcribe():
     NOTE:
     This is an endless loop that only stops when the application is stopped.
     """
-    for index, name in enumerate(sr.Microphone.list_microphone_names()):
-        print(f"Microphones index {index}: {name}")
-        st.write(f"Microphones index {index}: {name}")
+    st.write(sr.Microphone.list_microphone_names())
     # sr.Microphone(device_index=0)
     # print(
     #     f"MICs Found on this computer: \n {sr.Microphone.list_microphone_names()}")
