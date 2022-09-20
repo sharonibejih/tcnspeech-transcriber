@@ -5,7 +5,7 @@ import speech_recognition as sr
 from transcribe import transcribe
 
 print("installing pyaudio")
-os.system("sudo apt install python3-pyaudio")
+os.system("apt-get install portaudio19-dev python-pyaudio")
 # os.system("pip install pyaudio")
 
 # os.system("python -m pip install pyaudio")
