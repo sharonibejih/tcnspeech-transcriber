@@ -8,7 +8,7 @@ from pydub import AudioSegment
 processor = Wav2Vec2Processor.from_pretrained("sharonibejih/wav2vec2-large-xlsr-ng-en-sermon")
 model = AutoModelForCTC.from_pretrained("sharonibejih/wav2vec2-large-xlsr-ng-en-sermon")
 
-r = sr.Recognizer()
+# r = sr.Recognizer()
 
 def transcribe():
     """
@@ -17,7 +17,15 @@ def transcribe():
     NOTE:
     This is an endless loop that only stops when the application is stopped.
     """
-    with sr.Microphone(sample_rate=16000, device_index=2) as source:
+    sr.Microphone(device_index=0)
+    print(
+        f"MICs Found on this computer: \n {sr.Microphone.list_microphone_names()}")
+    # Creating a recognition object
+    r = sr.Recognizer()
+    r.energy_threshold = 4000
+    r.dynamic_energy_threshold = False
+
+    with sr.Microphone(sample_rate=16000) as source:
         print("You can start speaking now...")
         while True:
             audio = r.listen(source)  # pyaudio object
