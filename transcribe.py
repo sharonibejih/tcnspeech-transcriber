@@ -17,7 +17,7 @@ def transcribe():
     NOTE:
     This is an endless loop that only stops when the application is stopped.
     """
-    with sr.Microphone(sample_rate=16000) as source:
+    with sr.Microphone(sample_rate=16000, device_index=2) as source:
         print("You can start speaking now...")
         while True:
             audio = r.listen(source)  # pyaudio object
