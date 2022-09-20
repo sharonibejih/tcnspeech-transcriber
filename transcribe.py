@@ -4,13 +4,19 @@ import speech_recognition as sr
 import io
 from pydub import AudioSegment
 
-
+## load model and processor from the huggingface hub repository.
 processor = Wav2Vec2Processor.from_pretrained("sharonibejih/wav2vec2-large-xlsr-ng-en-sermon")
 model = AutoModelForCTC.from_pretrained("sharonibejih/wav2vec2-large-xlsr-ng-en-sermon")
 
 r = sr.Recognizer()
 
 def transcribe():
+    """
+    Takes in speech from a microphone and processes it to return the spoken words.
+
+    NOTE:
+    This is an endless loop that only stops when the application is stopped.
+    """
     with sr.Microphone(sample_rate=16000) as source:
         print("You can start speaking now...")
         while True:
@@ -19,8 +25,9 @@ def transcribe():
             data = io.BytesIO(audio.get_wav_data())
             # convert data to numpy array
             clip = AudioSegment.from_file(data)
-            # convert clip tensor
+            # convert clip to tensor
             x = torch.FloatTensor(clip.get_array_of_samples())
+
             inputs = processor(x, sampling_rate=16000, 
             return_tensors="pt", padding=True).input_values
 
@@ -28,6 +35,7 @@ def transcribe():
 
             tokens = torch.argmax(logits, dim=-1)
             text = processor.batch_decode(tokens)
-            return text
             # print("You said", str(text))
+            return text
+            
         
