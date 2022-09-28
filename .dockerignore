@@ -1,0 +1,5 @@
+.tcn-venv
+__pycache__
+.gitignore
+packages.txt
+setup.sh
